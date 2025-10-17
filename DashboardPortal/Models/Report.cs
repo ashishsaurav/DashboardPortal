@@ -4,7 +4,6 @@
     {
         public string ReportId { get; set; }
         public string ReportName { get; set; }
-        public string ReportDescription { get; set; }
         public string ReportUrl { get; set; }
         public bool IsActive { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

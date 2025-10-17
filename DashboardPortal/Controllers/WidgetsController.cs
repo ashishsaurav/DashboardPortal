@@ -41,7 +41,7 @@ namespace DashboardPortal.Controllers
                 {
                     WidgetId = rw.Widget.WidgetId,
                     WidgetName = rw.Widget.WidgetName,
-                    WidgetDescription = rw.Widget.WidgetDescription,
+                    WidgetUrl = rw.Widget.WidgetUrl,
                     WidgetType = rw.Widget.WidgetType,
                     IsActive = rw.Widget.IsActive,
                     OrderIndex = rw.OrderIndex
@@ -71,7 +71,7 @@ namespace DashboardPortal.Controllers
             {
                 WidgetId = $"widget-{Guid.NewGuid().ToString().Substring(0, 8)}",
                 WidgetName = dto.WidgetName,
-                WidgetDescription = dto.WidgetDescription,
+                WidgetUrl = dto.WidgetUrl,
                 WidgetType = dto.WidgetType,
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow,
@@ -94,7 +94,7 @@ namespace DashboardPortal.Controllers
                 return NotFound(new { message = "Widget not found" });
 
             widget.WidgetName = dto.WidgetName;
-            widget.WidgetDescription = dto.WidgetDescription;
+            widget.WidgetUrl = dto.WidgetUrl;
             widget.WidgetType = dto.WidgetType;
             widget.UpdatedAt = DateTime.UtcNow;
 
@@ -173,7 +173,7 @@ namespace DashboardPortal.Controllers
             {
                 WidgetId = widget.WidgetId,
                 WidgetName = widget.WidgetName,
-                WidgetDescription = widget.WidgetDescription,
+                WidgetUrl = widget.WidgetUrl,
                 WidgetType = widget.WidgetType,
                 IsActive = widget.IsActive
             };

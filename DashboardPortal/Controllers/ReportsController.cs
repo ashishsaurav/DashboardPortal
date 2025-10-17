@@ -41,7 +41,6 @@ namespace DashboardPortal.Controllers
                 {
                     ReportId = rr.Report.ReportId,
                     ReportName = rr.Report.ReportName,
-                    ReportDescription = rr.Report.ReportDescription,
                     ReportUrl = rr.Report.ReportUrl,
                     IsActive = rr.Report.IsActive,
                     OrderIndex = rr.OrderIndex
@@ -71,7 +70,6 @@ namespace DashboardPortal.Controllers
             {
                 ReportId = $"report-{Guid.NewGuid().ToString().Substring(0, 8)}",
                 ReportName = dto.ReportName,
-                ReportDescription = dto.ReportDescription,
                 ReportUrl = dto.ReportUrl,
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow,
@@ -94,7 +92,6 @@ namespace DashboardPortal.Controllers
                 return NotFound(new { message = "Report not found" });
 
             report.ReportName = dto.ReportName;
-            report.ReportDescription = dto.ReportDescription;
             report.ReportUrl = dto.ReportUrl;
             report.UpdatedAt = DateTime.UtcNow;
 
@@ -173,7 +170,6 @@ namespace DashboardPortal.Controllers
             {
                 ReportId = report.ReportId,
                 ReportName = report.ReportName,
-                ReportDescription = report.ReportDescription,
                 ReportUrl = report.ReportUrl,
                 IsActive = report.IsActive
             };

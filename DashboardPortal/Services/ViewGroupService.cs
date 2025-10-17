@@ -242,7 +242,6 @@ namespace DashboardPortal.Services
                             {
                                 ReportId = vr.Report.ReportId,
                                 ReportName = vr.Report.ReportName,
-                                ReportDescription = vr.Report.ReportDescription,
                                 ReportUrl = vr.Report.ReportUrl,
                                 IsActive = vr.Report.IsActive,
                                 OrderIndex = vr.OrderIndex
@@ -253,7 +252,7 @@ namespace DashboardPortal.Services
                             {
                                 WidgetId = vw.Widget.WidgetId,
                                 WidgetName = vw.Widget.WidgetName,
-                                WidgetDescription = vw.Widget.WidgetDescription,
+                                WidgetUrl = vw.Widget.WidgetUrl,
                                 WidgetType = vw.Widget.WidgetType,
                                 IsActive = vw.Widget.IsActive,
                                 OrderIndex = vw.OrderIndex

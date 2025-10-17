@@ -34,7 +34,6 @@ namespace DashboardPortal.Data
                 entity.HasKey(e => e.RoleId);
                 entity.Property(e => e.RoleId).HasMaxLength(50);
                 entity.Property(e => e.RoleName).HasMaxLength(100).IsRequired();
-                entity.Property(e => e.Description).HasMaxLength(500);
             });
 
             // User Configuration
@@ -58,7 +57,6 @@ namespace DashboardPortal.Data
                 entity.HasKey(e => e.ReportId);
                 entity.Property(e => e.ReportId).HasMaxLength(50);
                 entity.Property(e => e.ReportName).HasMaxLength(200).IsRequired();
-                entity.Property(e => e.ReportDescription).HasMaxLength(500);
                 entity.Property(e => e.ReportUrl).HasMaxLength(500);
             });
 
@@ -68,7 +66,7 @@ namespace DashboardPortal.Data
                 entity.HasKey(e => e.WidgetId);
                 entity.Property(e => e.WidgetId).HasMaxLength(50);
                 entity.Property(e => e.WidgetName).HasMaxLength(200).IsRequired();
-                entity.Property(e => e.WidgetDescription).HasMaxLength(500);
+                entity.Property(e => e.WidgetUrl).HasMaxLength(500);
                 entity.Property(e => e.WidgetType).HasMaxLength(50);
             });
 

@@ -4,7 +4,7 @@
     {
         public string WidgetId { get; set; }
         public string WidgetName { get; set; }
-        public string WidgetDescription { get; set; }
+        public string WidgetUrl { get; set; }
         public string WidgetType { get; set; }
         public bool IsActive { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
