@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Register Services
 builder.Services.AddScoped<IViewGroupService, ViewGroupService>();
+builder.Services.AddScoped<IPowerBIService, PowerBIService>();
 
 // Add CORS
 builder.Services.AddCors(options =>

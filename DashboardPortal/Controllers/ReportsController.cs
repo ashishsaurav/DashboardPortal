@@ -105,13 +105,19 @@ namespace DashboardPortal.Controllers
         public async Task<IActionResult> DeleteReport(string id)
         {
             var report = await _context.Reports.FindAsync(id);
+            if (report == null) return NotFound();
 
-            if (report == null)
-                return NotFound(new { message = "Report not found" });
+            // Clean up ViewReports
+            var viewReports = await _context.ViewReports.Where(vr => vr.ReportId == id).ToListAsync();
+            _context.ViewReports.RemoveRange(viewReports);
 
+            // Clean up RoleReports
+            var roleReports = await _context.RoleReports.Where(rr => rr.ReportId == id).ToListAsync();
+            _context.RoleReports.RemoveRange(roleReports);
+
+            // Delete report
             _context.Reports.Remove(report);
             await _context.SaveChangesAsync();
-
             return NoContent();
         }
 

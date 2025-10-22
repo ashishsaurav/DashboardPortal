@@ -105,13 +105,19 @@ namespace DashboardPortal.Controllers
         public async Task<IActionResult> DeleteWidget(string id)
         {
             var widget = await _context.Widgets.FindAsync(id);
+            if (widget == null) return NotFound();
 
-            if (widget == null)
-                return NotFound(new { message = "Widget not found" });
+            // Clean up ViewWidgets
+            var viewWidgets = await _context.ViewWidgets.Where(vr => vr.WidgetId == id).ToListAsync();
+            _context.ViewWidgets.RemoveRange(viewWidgets);
 
+            // Clean up RoleWidgets
+            var roleWidgets = await _context.RoleWidgets.Where(rr => rr.WidgetId == id).ToListAsync();
+            _context.RoleWidgets.RemoveRange(roleWidgets);
+
+            // Delete widget
             _context.Widgets.Remove(widget);
             await _context.SaveChangesAsync();
-
             return NoContent();
         }
 

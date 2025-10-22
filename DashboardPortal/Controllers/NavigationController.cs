@@ -70,6 +70,8 @@ namespace DashboardPortal.Controllers
             setting.HiddenViewGroups = JsonSerializer.Serialize(dto.HiddenViewGroups);
             setting.HiddenViews = JsonSerializer.Serialize(dto.HiddenViews);
             setting.UpdatedAt = DateTime.UtcNow;
+            setting.ExpandedViewGroups = JsonSerializer.Serialize(dto.ExpandedViewGroups ?? new List<string>());
+            setting.IsNavigationCollapsed = dto.IsNavigationCollapsed ?? false;
 
             await _context.SaveChangesAsync();
 
@@ -101,7 +103,9 @@ namespace DashboardPortal.Controllers
                 ViewGroupOrder = JsonSerializer.Deserialize<List<string>>(setting.ViewGroupOrder ?? "[]"),
                 ViewOrders = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(setting.ViewOrders ?? "{}"),
                 HiddenViewGroups = JsonSerializer.Deserialize<List<string>>(setting.HiddenViewGroups ?? "[]"),
-                HiddenViews = JsonSerializer.Deserialize<List<string>>(setting.HiddenViews ?? "[]")
+                HiddenViews = JsonSerializer.Deserialize<List<string>>(setting.HiddenViews ?? "[]"),
+                ExpandedViewGroups = JsonSerializer.Deserialize<List<string>>(setting.ExpandedViewGroups ?? "[]"),
+                IsNavigationCollapsed = setting.IsNavigationCollapsed ?? false
             };
         }
     }
