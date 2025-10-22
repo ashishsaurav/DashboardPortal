@@ -42,7 +42,6 @@ namespace DashboardPortal.Controllers
                     WidgetId = rw.Widget.WidgetId,
                     WidgetName = rw.Widget.WidgetName,
                     WidgetUrl = rw.Widget.WidgetUrl,
-                    WidgetType = rw.Widget.WidgetType,
                     IsActive = rw.Widget.IsActive,
                     OrderIndex = rw.OrderIndex
                 })
@@ -72,7 +71,6 @@ namespace DashboardPortal.Controllers
                 WidgetId = $"widget-{Guid.NewGuid().ToString().Substring(0, 8)}",
                 WidgetName = dto.WidgetName,
                 WidgetUrl = dto.WidgetUrl,
-                WidgetType = dto.WidgetType,
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
@@ -95,7 +93,6 @@ namespace DashboardPortal.Controllers
 
             widget.WidgetName = dto.WidgetName;
             widget.WidgetUrl = dto.WidgetUrl;
-            widget.WidgetType = dto.WidgetType;
             widget.UpdatedAt = DateTime.UtcNow;
 
             await _context.SaveChangesAsync();
@@ -174,7 +171,6 @@ namespace DashboardPortal.Controllers
                 WidgetId = widget.WidgetId,
                 WidgetName = widget.WidgetName,
                 WidgetUrl = widget.WidgetUrl,
-                WidgetType = widget.WidgetType,
                 IsActive = widget.IsActive
             };
         }

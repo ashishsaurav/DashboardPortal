@@ -67,7 +67,6 @@ namespace DashboardPortal.Data
                 entity.Property(e => e.WidgetId).HasMaxLength(50);
                 entity.Property(e => e.WidgetName).HasMaxLength(200).IsRequired();
                 entity.Property(e => e.WidgetUrl).HasMaxLength(500);
-                entity.Property(e => e.WidgetType).HasMaxLength(50);
             });
 
             // RoleReport Configuration

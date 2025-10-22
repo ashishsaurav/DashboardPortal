@@ -253,7 +253,6 @@ namespace DashboardPortal.Services
                                 WidgetId = vw.Widget.WidgetId,
                                 WidgetName = vw.Widget.WidgetName,
                                 WidgetUrl = vw.Widget.WidgetUrl,
-                                WidgetType = vw.Widget.WidgetType,
                                 IsActive = vw.Widget.IsActive,
                                 OrderIndex = vw.OrderIndex
                             }).ToList()
